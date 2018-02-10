@@ -138,11 +138,12 @@
     <ClCompile Include="Source\Factory.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\GameData.cpp" />
-    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\PhysicsCompInterface.cpp" />
     <ClCompile Include="Source\PickupCompInterface.cpp" />
     <ClCompile Include="Source\RenderingCompInterface.cpp" />
     <ClCompile Include="Source\ResourceHandler.cpp" />
+    <ClCompile Include="Source\SceneGraph.cpp" />
     <ClCompile Include="Source\SpecialAbilityComponent.cpp" />
     <ClCompile Include="Source\World.cpp" />
     <ClCompile Include="Source\WorldRenderer.cpp" />
@@ -161,10 +162,12 @@
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\GameData.h" />
     <ClInclude Include="Source\GameEngine.h" />
+    <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\PhysicsCompInterface.h" />
     <ClInclude Include="Source\PickupCompInterface.h" />
     <ClInclude Include="Source\RenderingCompInterface.h" />
     <ClInclude Include="Source\ResourceHandler.h" />
+    <ClInclude Include="Source\SceneGraph.h" />
     <ClInclude Include="Source\World.h" />
     <ClInclude Include="Source\WorldRenderer.h" />
   </ItemGroup>
