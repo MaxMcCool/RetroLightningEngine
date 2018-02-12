@@ -10,14 +10,13 @@ Game::Game()
 
 void Game::InitializeWorld()
 {
-	mWindow.setSize({ 1024,769 });
-	mWindow.setTitle("RetroLightning");
 
 	//Splash Screen
 	sf::Texture texture;
 	/*assert(*/texture.loadFromFile("Logo.png")/*)*/;
 	sf::Sprite splashLogo;
 	splashLogo.setTexture(texture);
+	splashLogo.setPosition(1024.0f / 2.0f, 769.0f / 2.0f);
 	sf::RenderWindow splash({ 1024,769 }, "RetroLightning");
 	splash.draw(splashLogo);
 	splash.display();
@@ -63,19 +62,20 @@ void Game::InitializeWorld()
 
 void Game::Run()
 {
-	
-	while (mWorld.IsOpen())
+	sf::RenderWindow mWindow({ 1024,769 }, "RetroLightningGame");
+	while (mWindow.isOpen())
 	{
 		sf::Event event;
 		while (mWindow.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
-			}	//mWorld.mRenderWindow->close();
+				mWindow.close();
+			}	
 		}
 
 		mWindow.clear();
-		mWorld.display();
+		mWindow.display();
 	}
 
 }
