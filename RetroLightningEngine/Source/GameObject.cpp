@@ -43,3 +43,4 @@ void GameObject::RemoveLast()
 {
 	children.pop_back();
 }
+

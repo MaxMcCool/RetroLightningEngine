@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include "BaseComponent.h"
+#include "Transform.h"
 class GameObject{
 public:
 	GameObject(int x, int y);
@@ -10,11 +12,12 @@ public:
 	void RemoveLast();
 	std::vector<GameObject> children;
 	GameObject* parent;
+	BaseComponent* components;
+	Transform* transforms;
+	
 private:
 	int XPosition;
 	int YPosition;
 	float XRotation;
 	float YRotation;
-	
-
 };
