@@ -145,6 +145,7 @@
     <ClCompile Include="Source\ResourceHandler.cpp" />
     <ClCompile Include="Source\SceneGraph.cpp" />
     <ClCompile Include="Source\SpecialAbilityComponent.cpp" />
+    <ClCompile Include="Source\TransformComponent.cpp" />
     <ClCompile Include="Source\World.cpp" />
     <ClCompile Include="Source\WorldRenderer.cpp" />
   </ItemGroup>
@@ -154,6 +155,7 @@
     <ClInclude Include="Source\AICompInterface.h" />
     <ClInclude Include="Source\AttributeCompInterface.h" />
     <ClInclude Include="Source\AudioManager.h" />
+    <ClInclude Include="Source\BaseComponent.h" />
     <ClInclude Include="Source\Collision.h" />
     <ClInclude Include="Source\ComponentFactory.h" />
     <ClInclude Include="Source\ComponentInterface.h" />
@@ -168,6 +170,7 @@
     <ClInclude Include="Source\RenderingCompInterface.h" />
     <ClInclude Include="Source\ResourceHandler.h" />
     <ClInclude Include="Source\SceneGraph.h" />
+    <ClInclude Include="Source\TransformComponent.h" />
     <ClInclude Include="Source\World.h" />
     <ClInclude Include="Source\WorldRenderer.h" />
   </ItemGroup>
