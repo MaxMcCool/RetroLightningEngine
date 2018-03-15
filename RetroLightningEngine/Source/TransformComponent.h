@@ -2,18 +2,20 @@
 #include "BaseComponent.h"
 #include <Windows.h>
 #include <DirectXMath.h>
-
+#include <SFML\Graphics.hpp>
 class TransformComponent : public BaseComponent {
 public:
-	DirectX::XMMATRIX model;
-	DirectX::XMMATRIX positionM;
-	DirectX::XMMATRIX rotationM;
-	DirectX::XMMATRIX scaleM;
-
+	sf::Transform model;
+	sf::Transform positionM;
+	sf::Transform rotationM;
+	sf::Transform scaleM;
+	sf::Transform g;
 	TransformComponent();
-	TransformComponent(DirectX::XMMATRIX xm);
-	void Translate(DirectX::XMMATRIX xm);
-	void Rotate(DirectX::XMMATRIX xm);
+	TransformComponent(sf::Transform xm);
+	void Translate(sf::Transform xm);
+	void Rotate(sf::Transform xm);
 	void Scale(float scale);
 	void Update();
 };
+
+

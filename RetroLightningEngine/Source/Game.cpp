@@ -1,19 +1,22 @@
 #include "EngineInitialization.h"
+
 #include "Game.h"
 #include "World.h"
 #include <cassert>
 
 Game::Game()
 {
-	InitializeWorld();
+	if (InitializeWorld()) {
+		Run();
+	}
 }
 
-void Game::InitializeWorld()
+bool Game::InitializeWorld()
 {
 
 	//Splash Screen
 	sf::Texture texture;
-	/*assert(*/texture.loadFromFile("Logo.png")/*)*/;
+	/*assert(*/texture.loadFromFile("..\Assets\Logo.png")/*)*/;
 	sf::Sprite splashLogo;
 	splashLogo.setTexture(texture);
 	splashLogo.setPosition(1024.0f / 2.0f, 769.0f / 2.0f);
@@ -47,35 +50,45 @@ void Game::InitializeWorld()
 
 	//Create World
 
-	
 
-
-
-	if (hasRequirementsMet)
-	{
-		
-		mWorld = World(&sf::RenderWindow({ 1024,769 },"RetroLightning"));
-	}
-
-
+	return hasRequirementsMet;
 }
 
 void Game::Run()
 {
-	sf::RenderWindow mWindow({ 1024,769 }, "RetroLightningGame");
+	
+	mWindow.setTitle("RetroLightningGame");
+	mWindow.setSize({ 1024,769 });
+
 	while (mWindow.isOpen())
 	{
-		sf::Event event;
+		//Game::mWindow
+		//update input
+			// inputManager::Update;
+		
+		//update physics
+			// PhysicsManager::Update;
+
+		//update gameobjects
+			//World.update;
+
+		//update AI
+			//AI.update;
+
+		//update 
+		/*sf::Event event;
 		while (mWindow.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 			{
 				mWindow.close();
 			}	
-		}
+		}*/
 
 		mWindow.clear();
 		mWindow.display();
+
+		// Play Audio
 	}
 
 }

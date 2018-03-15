@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "Game.h"
 #include "BaseComponent.h"
 #include "TransformComponent.h"
 GameObject::GameObject(float x, float y)
@@ -7,26 +8,26 @@ GameObject::GameObject(float x, float y)
 	YPosition = y;
 	XRotation = 0;
 	YRotation = 0;
-	DirectX::XMMATRIX xm = DirectX::XMMATRIX(x, 0, 0, 0, 0, y, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+	sf::Transform xm = sf::Transform(x, 0.0f, 0.0f, 0.0f, y, 0.0f, 0.0f, 0.0f, 0.0f);
 	
 	transform = TransformComponent();
 	
 	transform.Translate(xm);
 	componentList.push_back((BaseComponent)transform);
+	sprite.setTexture(texture);
 }
 
-GameObject::GameObject(float x, float y, float rotx, float roty)
+GameObject::GameObject(float x, float y, float angle)
 {
 	XPosition = x;
 	YPosition = y;
-	XRotation = rotx;
-	YRotation = roty;
-	DirectX::XMMATRIX xm = DirectX::XMMATRIX(x, 0, 0, 0, 0, y, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-	DirectX::XMMATRIX xmr = DirectX::XMMatrixRotationX(rotx) * DirectX::XMMatrixRotationY(roty);
+	sf::Transform xm = sf::Transform(x, 0.0f, 0.0f, 0.0f, y, 0.0f, 0.0f, 0.0f, 0.0f);
+	sf::Transform xmr = xm.rotate(angle);
 	transform = TransformComponent();
 	transform.Translate(xm);
 	transform.Rotate(xmr);
 	componentList.push_back((BaseComponent)transform);
+	sprite.setTexture(texture);
 }
 
 void GameObject::Update()
@@ -43,11 +44,13 @@ void GameObject::Update()
 
 void GameObject::Render()
 {
-	for (GameObject n : children)
-	{
-		n.Render();
+	Game::mWindow.draw(sprite);
+	if (children.size > 1) {
+		for (GameObject n : children)
+		{
+			n.Render();
+		}
 	}
-	//render object
 }
 
 void GameObject::Attach(GameObject g)
@@ -61,10 +64,14 @@ void GameObject::RemoveLast()
 	children.pop_back();
 }
 
-<<<<<<< HEAD
-=======
-DirectX::XMMATRIX GameObject::GetTransform()
+
+sf::Transform GameObject::GetTransform()
 {
-	return transform.model * parent->GetTransform();
+	if (parent != NULL) {
+		return transform.model.combine(parent->GetTransform());
+	}
+	else
+	{
+		return transform.model;
+	}
 }
->>>>>>> Transform

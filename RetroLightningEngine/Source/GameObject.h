@@ -1,18 +1,15 @@
 #pragma once
 #include <vector>
 #include "BaseComponent.h"
-<<<<<<< HEAD
-#include "Transform.h"
-=======
 #include "TransformComponent.h"
->>>>>>> Transform
+#include "SFML\Graphics.hpp"
 class GameObject{
 public:
 	GameObject(float x, float y);
-	GameObject(float x, float y, float rotx, float roty);
+	GameObject(float x, float y, float angle);
 	void Update();
 	void Render();
-	DirectX::XMMATRIX GetTransform();
+	sf::Transform GetTransform();
 	void Attach(GameObject g);
 	void RemoveLast();
 	TransformComponent transform;
@@ -20,11 +17,13 @@ public:
 	std::vector<BaseComponent> componentList;
 	GameObject* parent;
 	BaseComponent* components;
-	Transform* transforms;
 	
 private:
 	int XPosition;
 	int YPosition;
 	float XRotation;
 	float YRotation;
+	
+	sf::Texture texture;
+	sf::Sprite sprite;
 };
