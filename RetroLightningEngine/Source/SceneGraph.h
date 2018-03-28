@@ -4,12 +4,14 @@
 class SceneGraph
 {
 public:
+	sf::RenderWindow* mWindow;
+	sf::Transform transform;
 	SceneGraph();
 	void Update();
-	void Render();
+	void Draw(sf::RenderWindow* window);
 	void Attach(GameObject g);
 	void RemoveLast();
-protected:
 	std::vector<GameObject> children;
+	
 
 };

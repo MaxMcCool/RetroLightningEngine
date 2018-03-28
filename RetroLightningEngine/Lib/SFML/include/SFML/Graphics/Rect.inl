@@ -72,6 +72,8 @@ height(static_cast<T>(rectangle.height))
 
 
 ////////////////////////////////////////////////////////////
+#undef max;
+#undef min;
 template <typename T>
 bool Rect<T>::contains(T x, T y) const
 {

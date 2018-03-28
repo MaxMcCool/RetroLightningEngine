@@ -1,6 +1,6 @@
 #include "SFML\Graphics.hpp"
-#include "Source\Game.h"
+#include "RetroLightning.h"
 int main() {
-	Game maingame;
+	RetroLightning maingame;
 	return 0;
 }

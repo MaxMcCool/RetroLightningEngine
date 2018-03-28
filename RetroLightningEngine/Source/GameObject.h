@@ -2,28 +2,35 @@
 #include <vector>
 #include "BaseComponent.h"
 #include "TransformComponent.h"
+#include "PhysicsComponent.h"
 #include "SFML\Graphics.hpp"
-class GameObject{
+#include <string>
+
+class GameObject {
 public:
+	float xSpeed = 5;
+	float ySpeed = 0;
+	float rotation = 0;
+	GameObject() {};
 	GameObject(float x, float y);
 	GameObject(float x, float y, float angle);
 	void Update();
 	void Render();
 	sf::Transform GetTransform();
+	sf::Transform GetWorldTransform();
+	sf::Transform xm;
+	sf::Sprite sprite;
+	void Move(float x, float y);
 	void Attach(GameObject g);
 	void RemoveLast();
-	TransformComponent transform;
-	std::vector<GameObject> children;
-	std::vector<BaseComponent> componentList;
-	GameObject* parent;
+	void Destroy();
+	void Draw( sf::RenderWindow* window);
+	PhysicsComponent mphysicsBody;
+	sf::Sprite parent;
+	bool hasParent;
 	BaseComponent* components;
-	
-private:
-	int XPosition;
-	int YPosition;
-	float XRotation;
-	float YRotation;
-	
+	float XPosition;
+	float YPosition;
 	sf::Texture texture;
-	sf::Sprite sprite;
+	std::vector<GameObject> children;
 };

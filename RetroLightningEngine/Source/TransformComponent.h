@@ -6,16 +6,10 @@
 class TransformComponent : public BaseComponent {
 public:
 	sf::Transform model;
-	sf::Transform positionM;
-	sf::Transform rotationM;
-	sf::Transform scaleM;
-	sf::Transform g;
 	TransformComponent();
-	TransformComponent(sf::Transform xm);
-	void Translate(sf::Transform xm);
-	void Rotate(sf::Transform xm);
-	void Scale(float scale);
-	void Update();
+	void move(float x, float y);
+	void Update(sf::Transform xm);
+	sf::Transform identity = sf::Transform(1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
 };
 
 

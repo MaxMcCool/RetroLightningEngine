@@ -1,21 +1,22 @@
 #include "SceneGraph.h"
 #include "GameObject.h"
+#include <iostream>
 SceneGraph::SceneGraph()
 {
-
+	transform = sf::Transform::Identity;
 }
 
 void SceneGraph::Update()
 {
-	for (GameObject n : children)
-	{
-		n.Update();
-	}
 }
 
-void SceneGraph::Render()
+void SceneGraph::Draw(sf::RenderWindow* window)
 {
-
+	
+	for (GameObject n : children)
+	{
+		n.Draw(window);
+	}
 }
 
 void SceneGraph::Attach(GameObject g)

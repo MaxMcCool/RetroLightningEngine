@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>Game\$(Configuration)\$(Platform)</OutDir>
+    <OutDir>Game\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>Temp</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -96,8 +96,8 @@
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)RetroLightningEngine\Lib\SFML\lib\static-std;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)RetroLightningEngine\Lib\SFML\lib\static-std\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-window-s-d.lib;sfml-graphics-s-d.lib;sfml-audio-s-d.lib;sfml-network-s-d.lib;sfml-system-s-d.lib;sfml-main-d.lib;opengl32.lib;winmm.lib;gdi32.lib;freetype.lib;jpeg.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -161,11 +161,13 @@
     <ClCompile Include="Source\ComponentInterface.cpp" />
     <ClCompile Include="Source\EngineInitialization.cpp" />
     <ClCompile Include="Source\Factory.cpp" />
-    <ClCompile Include="Source\Game.cpp" />
+    <ClCompile Include="Source\RetroLightning.cpp" />
     <ClCompile Include="Source\GameData.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\PhysicsCompInterface.cpp" />
+    <ClCompile Include="Source\PhysicsComponent.cpp" />
+    <ClCompile Include="Source\PhysicsHandler.cpp" />
     <ClCompile Include="Source\PickupCompInterface.cpp" />
     <ClCompile Include="Source\RenderingCompInterface.cpp" />
     <ClCompile Include="Source\ResourceHandler.cpp" />
@@ -187,11 +189,13 @@
     <ClInclude Include="Source\ComponentInterface.h" />
     <ClInclude Include="Source\EngineInitialization.h" />
     <ClInclude Include="Source\Factory.h" />
-    <ClInclude Include="Source\Game.h" />
+    <ClInclude Include="Source\RetroLightning.h" />
     <ClInclude Include="Source\GameData.h" />
     <ClInclude Include="Source\GameEngine.h" />
     <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\PhysicsCompInterface.h" />
+    <ClInclude Include="Source\PhysicsComponent.h" />
+    <ClInclude Include="Source\PhysicsHandler.h" />
     <ClInclude Include="Source\PickupCompInterface.h" />
     <ClInclude Include="Source\RenderingCompInterface.h" />
     <ClInclude Include="Source\ResourceHandler.h" />

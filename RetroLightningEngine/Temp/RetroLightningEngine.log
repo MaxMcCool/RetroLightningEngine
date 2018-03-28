@@ -1,7 +1,5 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(372,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(373,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (Temp\) contains files shared from another project (PhiEngine.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  main.cpp
-  Game.cpp
-  Generating Code...
+  World.cpp
+c:\users\timothy fernando\documents\retrolightning\retrolightningengine\lib\sfml\include\sfml\graphics\rect.inl(75): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\timothy fernando\documents\retrolightning\retrolightningengine\lib\sfml\include\sfml\graphics\rect.inl(76): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   RetroLightningEngine.vcxproj -> C:\Users\Timothy Fernando\Documents\RetroLightning\RetroLightningEngine\Game\Debug\Win32\RetroLightningEngine.exe
