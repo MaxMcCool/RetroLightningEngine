@@ -10,12 +10,8 @@ GameObject::GameObject(float x, float y)
 	YPosition = y;
 	sprite = sf::Sprite();
 	sprite.setPosition(x, y);
-	//Set and Apply Texture
-	texture.loadFromFile("Assets/Logo.png");
+	texture.loadFromFile("Assets/Eagle.png");
 	sprite.setTexture(texture);
-	
-	//Set the Sprite's Bounding Box to PhysicsBody Component
-	//mphysicsBody = PhysicsComponent(sprite.getTextureRect());
 	
 }
 
@@ -25,9 +21,19 @@ GameObject::GameObject(float x, float y, float angle)
 	XPosition = x;
 	YPosition = y;
 
-	texture.loadFromFile("Assets/Logo.png");
+	texture.loadFromFile("Assets/Eagle.png");
 	sprite.setTexture(texture);
 	
+}
+
+GameObject::GameObject(float x, float y, float xspeed, float yspeed)
+{
+	XPosition = x;
+	YPosition = y;
+	xSpeed = xspeed;
+	ySpeed = yspeed;
+	texture.loadFromFile("Assets/Eagle.png");
+	sprite.setTexture(texture);
 }
 
 void GameObject::Update()
@@ -82,8 +88,11 @@ sf::Transform GameObject::GetWorldTransform()
 void GameObject::Draw( sf::RenderWindow* window)
 {
 	sprite.setTexture(texture);
-	//sprite.setPosition(XPosition, YPosition);
+	//
+	YPosition = YPosition - ySpeed;
+	sprite.setPosition(XPosition, YPosition);
 	window->draw(sprite);
+	window->display();
 	if (children.size() > 0)
 	{
 		for (GameObject n : children)
@@ -96,4 +105,21 @@ void GameObject::Draw( sf::RenderWindow* window)
 void GameObject::Move(float x, float y)
 {
 	sprite.setPosition(x, y);
+}
+void GameObject::setSpeed(float x, float y)
+{
+	xSpeed = x;
+	ySpeed = y;
+}
+float GameObject::getXSpeed()
+{
+	return xSpeed;
+}
+float GameObject::getYSpeed()
+{
+	return ySpeed;
+}
+sf::Sprite* GameObject::getSprite()
+{
+	return &sprite;
 }

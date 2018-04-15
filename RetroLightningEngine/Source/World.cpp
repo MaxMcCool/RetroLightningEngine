@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include <algorithm>
 #include <iostream>
+#include <cmath>
 World::World()
 {
 
@@ -27,19 +28,57 @@ void World::Update()
 
 void World::BuildWorld()
 {
-	
+	bulletStart = sf::Vector2<float>(800, 700);
+	bullet.loadFromFile("Assets/clash2.png");
+	bg.loadFromFile("Assets/background.jpg");
+	background.setTexture(bg);
+	for (int i = 0; i < 10; i++)
+	{
+		pbIsFiring[i] = false;
+		pbullet[i].setPosition(bulletStart);
+		pbullet[i].setScale(0.1, 0.1);
+	}
+
+
+
+
 	player = GameObject(0.0f,0.0f);
 	GameObject obj1 = GameObject(50.0f, 50.0f);
 	box = GameObject(500.0, 0.0f);
+	GameObject bullet = GameObject(500.0, 300.0,0.0,1.0);
 	player.Attach(obj1);
 	mSceneGraph.Attach(player);
 	mSceneGraph.Attach(box);
+	mSceneGraph.Attach(bullet);
 
 }
 void World::display()
 {
-	
 	mRenderWindow->clear();
+	background.setPosition(0, 0);
+	background.setTexture(bg);
+	mRenderWindow->draw(background);
+	for (int i = 0; i < 10; i++)
+	{
+		pbullet[i].setTexture(bullet);
+		if (pbIsFiring[i]) {
+			pbullet[i].setPosition(pbullet[i].getPosition().x, pbullet[i].getPosition().y + bulletspeed);
+			if (pbullet[i].getPosition().y <= 0)
+			{
+				pbullet[i].setPosition(bulletStart);
+				pbIsFiring[i] = false;
+			}
+		}
+		mRenderWindow->draw(pbullet[i]);
+	}
+
+
+
+
+	float bulletspeed = mSceneGraph.children[2].getYSpeed();
+	mSceneGraph.children[2].setSpeed(1.0, 0.0);
+	
+
 	for (GameObject n : mSceneGraph.children) {
 		if (n.children.size() > 0) {
 			sf::Vector2f curPos = n.sprite.getPosition();
@@ -99,6 +138,15 @@ void World::display()
 		playeraccely = -playeraccely;
 		
 	}
+	int sign = playeraccelx / std::abs(playeraccelx);
+	if ((std::abs(playeraccelx) - 0.03f) > 0) {
+		playeraccelx = sign * (std::abs(playeraccelx) - 0.03f);
+	}
+	else
+	{
+		playeraccelx = 0;
+	}
+	
 	//draw SceneGraph here
 	//mSceneGraph.Draw(mRenderWindow);
 	
@@ -137,7 +185,45 @@ void World::handleEvent(sf::Event e)
 			break;
 		case sf::Keyboard::Down:
 			break;
+		case sf::Keyboard::Space:
+			pbIsFiring[bulletcounter] = true;
+			pbullet[bulletcounter].setPosition(player.getSprite()->getPosition());
+			pbullet[bulletcounter].move(player.getSprite()->getTextureRect().width / 2, 0);
+			bulletcounter++;
+			if (bulletcounter >= 10)
+			{
+				bulletcounter = 0;
+			}
+			break;
 		}
+		
 	}
+	/*if (e.type == sf::Event::KeyReleased)
+	{
+		switch (e.key.code)
+		{
+		case sf::Keyboard::Key::A:
+			playeraccelx = 0;
+			break;
+		case sf::Keyboard::Key::D:
+			playeraccelx = 0;
+			break;
+		case sf::Keyboard::Key::W:
+			playeraccely = 0;
+			break;
+		case sf::Keyboard::Key::S:
+			playeraccely = 0;
+			break;
+		case sf::Keyboard::Left:
+
+			break;
+		case sf::Keyboard::Right:
+			break;
+		case sf::Keyboard::Up:
+			break;
+		case sf::Keyboard::Down:
+			break;
+		}
+	}*/
 }
 

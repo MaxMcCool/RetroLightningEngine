@@ -58,7 +58,7 @@ bool RetroLightning::InitializeWorld()
 void RetroLightning::Run()
 {
 	
-	sf::RenderWindow mWindow({ 1324,769 }, "Game");
+	sf::RenderWindow mWindow({ 1324,769 }, "Scrap Shuttle");
 	mWorld = World(&mWindow);
 	while (mWindow.isOpen())
 	{

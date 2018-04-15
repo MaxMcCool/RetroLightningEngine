@@ -2,4 +2,7 @@
   World.cpp
 c:\users\timothy fernando\documents\retrolightning\retrolightningengine\lib\sfml\include\sfml\graphics\rect.inl(75): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\timothy fernando\documents\retrolightning\retrolightningengine\lib\sfml\include\sfml\graphics\rect.inl(76): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+c:\users\timothy fernando\documents\retrolightning\retrolightningengine\source\world.cpp(39): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\timothy fernando\documents\retrolightning\retrolightningengine\source\world.cpp(141): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\timothy fernando\documents\retrolightning\retrolightningengine\source\world.cpp(191): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   RetroLightningEngine.vcxproj -> C:\Users\Timothy Fernando\Documents\RetroLightning\RetroLightningEngine\Game\Debug\Win32\RetroLightningEngine.exe

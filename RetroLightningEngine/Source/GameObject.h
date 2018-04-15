@@ -14,8 +14,13 @@ public:
 	GameObject() {};
 	GameObject(float x, float y);
 	GameObject(float x, float y, float angle);
+	GameObject(float x, float y, float xspeed, float yspeed);
 	void Update();
 	void Render();
+	void setSpeed(float x, float y);
+	float getXSpeed();
+	float getYSpeed();
+	sf::Sprite* getSprite();
 	sf::Transform GetTransform();
 	sf::Transform GetWorldTransform();
 	sf::Transform xm;
